@@ -8,14 +8,14 @@ const Home = () => {
     // const { workouts } = worktoutCtx;
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch("http://localhost:4000/workouts");
+            const response = await fetch("http://13.59.254.124/workouts");
             const data = await response.json();
             if (response.ok) {
                 ctx.setWorkouts(data);
             }
         };
         fetchWorkouts();
-    }, []);
+    }, [ctx.workouts.length]);
 
     return (
         <div className="pages">
