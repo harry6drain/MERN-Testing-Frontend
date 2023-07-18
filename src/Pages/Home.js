@@ -8,8 +8,7 @@ const Home = () => {
     // const { workouts } = worktoutCtx;
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const baseURL = process.env.BACKEND_URL
-            const response = await fetch(`${baseURL}:4000/workouts`);
+            const response = await fetch(`/workouts`);
             const data = await response.json();
             if (response.ok) {
                 ctx.setWorkouts(data);

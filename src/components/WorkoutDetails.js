@@ -5,9 +5,8 @@ const WorkoutDetails = ({ workout }) => {
   const workoutCtx = useContext(WorkoutsContext);
 
   const clickHandler = async () => {
-    const baseURL = process.env.BACKEND_URL
     const response = await fetch(
-      `${baseURL}:4000/workouts/${workout._id}`,
+      `/workouts/${workout._id}`,
       {
         method: "DELETE",
       }

@@ -13,8 +13,7 @@ const WorkoutForm = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const workout = { title, load, reps };
-    const baseURL = process.env.BACKEND_URL
-    const response = await fetch(`${baseURL}:4000/workouts`, {
+    const response = await fetch(`/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
