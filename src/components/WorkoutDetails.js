@@ -1,13 +1,13 @@
 import { WorkoutsContext } from "../context/WorkoutContext";
 import { useContext } from "react";
 
-
+const baseURL = process.env.BACKEND_URL
 const WorkoutDetails = ({ workout }) => {
   const workoutCtx = useContext(WorkoutsContext);
 
   const clickHandler = async () => {
     const response = await fetch(
-      `/workouts/${workout._id}`,
+      `${baseURL}/workouts/${workout._id}`,
       {
         method: "DELETE",
       }
