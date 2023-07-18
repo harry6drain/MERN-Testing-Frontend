@@ -3,13 +3,13 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { WorkoutsContext } from "../context/WorkoutContext";
 
-// const baseURL = process.env.BACKEND_URL
 const Home = () => {
     const ctx = useContext(WorkoutsContext);
     // const { workouts } = worktoutCtx;
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch(`http://localhost:4000/workouts`);
+            const baseURL = process.env.BACKEND_URL
+            const response = await fetch(`${baseURL}:4000/workouts`);
             const data = await response.json();
             if (response.ok) {
                 ctx.setWorkouts(data);

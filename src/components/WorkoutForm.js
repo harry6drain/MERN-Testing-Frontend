@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { WorkoutsContext } from "../context/WorkoutContext";
 
-// const baseURL = process.env.BACKEND_URL
 const WorkoutForm = () => {
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
@@ -14,8 +13,8 @@ const WorkoutForm = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const workout = { title, load, reps };
-
-    const response = await fetch(`http://localhost:4000/workouts`, {
+    const baseURL = process.env.BACKEND_URL
+    const response = await fetch(`${baseURL}:4000/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
