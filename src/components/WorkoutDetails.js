@@ -7,7 +7,7 @@ const WorkoutDetails = ({ workout }) => {
 
   const clickHandler = async () => {
     const response = await fetch(
-      `http://13.59.254.124/workouts/${workout._id}`,
+      `/workouts/${workout._id}`,
       {
         method: "DELETE",
       }

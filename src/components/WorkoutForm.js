@@ -13,7 +13,7 @@ const WorkoutForm = () => {
     e.preventDefault();
     const workout = { title, load, reps };
 
-    const response = await fetch("http://13.59.254.124/workouts", {
+    const response = await fetch("/workouts", {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
