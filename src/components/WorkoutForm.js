@@ -31,7 +31,7 @@ const WorkoutForm = () => {
       setLoad("");
       setReps("");
       setEmptyFields([]);
-      // console.log("New workout added: ", data);
+      console.log("New workout added: ", data);
       workoutCtx.createWorkout(workout);
     }
   };

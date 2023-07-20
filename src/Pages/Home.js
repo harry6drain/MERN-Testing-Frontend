@@ -16,7 +16,7 @@ const Home = () => {
         };
         fetchWorkouts();
         // eslint-disable-next-line
-    }, []);
+    }, [ctx.workouts.length]);
 
     return (
         <div className="pages">
