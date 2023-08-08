@@ -2,21 +2,34 @@ import { useContext, useEffect } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { WorkoutsContext } from "../context/WorkoutContext";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const ctx = useContext(WorkoutsContext);
-    // const { workouts } = worktoutCtx;
+    const userCtx = useContext(AuthContext);
+    const navigate = useNavigate()
+
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch(`/workouts`);
+            const response = await fetch(`/workouts`, {
+                headers: {
+                    Authorization: "Bearer " + userCtx.token,
+                },
+            });
             const data = await response.json();
             if (response.ok) {
                 ctx.setWorkouts(data);
             }
         };
-        fetchWorkouts();
+        if (userCtx.token) {
+            fetchWorkouts();
+        }
+        
         // eslint-disable-next-line
-    }, [ctx.workouts.length]);
+    }, [ctx.workouts.length, userCtx.token,navigate]);
+
+    
 
     return (
         <div className="pages">

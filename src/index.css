@@ -94,6 +94,14 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+form button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -105,4 +113,23 @@ div.error {
 
 input.error{
   border: 1px solid var(--error)
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 10px;
+}
+
+nav button {
+  padding: 6px 10px;
+  background: #fff;
+  color: black;
+  border-radius: 4px;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  margin-left: 10px;
 }

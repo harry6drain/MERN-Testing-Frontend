@@ -1,13 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { WorkoutsContext } from "../context/WorkoutContext";
+import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 
 const WorkoutDetails = ({ workout }) => {
     const workoutCtx = useContext(WorkoutsContext);
+    const userCtx = useContext(AuthContext);
 
     const clickHandler = async () => {
+        if (!userCtx.token) {
+            return;
+        }
         const response = await fetch(`/workouts/${workout._id}`, {
             method: "DELETE",
+            headers: {
+                Authorization: "Bearer " + userCtx.token,
+            },
         });
 
         if (response.ok) {
